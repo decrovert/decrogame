@@ -1,0 +1,7 @@
+# GNU Make
+Makefile
+**.make
+
+# Builds
+**/bin
+**/obj
