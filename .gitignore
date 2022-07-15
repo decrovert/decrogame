@@ -1,7 +1,11 @@
 # GNU Make
 Makefile
 **.make
+null.d
 
 # Builds
 **/bin
 **/obj
+
+# VS Code
+/.vscode

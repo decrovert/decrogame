@@ -15,3 +15,9 @@ workspace "Decrogame"
         objdir "%{prj.location}/obj/"
         
         files "src/**.cpp"
+
+        links {
+            "sfml-system",
+            "sfml-graphics",
+            "sfml-window"
+        }
