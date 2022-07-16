@@ -13,6 +13,16 @@ int main() {
 
     window->setFramerateLimit(60);
 
+    auto smiling_cube_image = std::make_shared<sf::Texture>();
+    
+    if (!smiling_cube_image->loadFromFile("sprites/smiling_cube.png")) {
+        // error
+        return EXIT_FAILURE;
+    }
+
+    auto smiling_cube_sprite = std::make_shared<sf::Sprite>();
+    smiling_cube_sprite->setTexture(*smiling_cube_image);
+
     while (window->isOpen()) {
         sf::Event event;
         
@@ -23,6 +33,9 @@ int main() {
         }
 
         window->clear();
+        
+        window->draw(*smiling_cube_sprite);
+        
         window->display();
     }
 
