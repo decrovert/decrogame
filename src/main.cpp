@@ -2,23 +2,21 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Logger.hpp"
+
 int main() {
-    auto window = std::shared_ptr<sf::RenderWindow>(
-        new sf::RenderWindow(sf::VideoMode(800, 600), "Decrogame", sf::Style::Default),
-        [] (sf::Window* const window) {
-            window->close();
-            delete window;
-        }
-    );
+    auto logger = std::make_shared<Decrogame::Logger>("Decrogame.log");
+
+    auto window = std::shared_ptr<sf::RenderWindow>(new sf::RenderWindow(
+        sf::VideoMode(800, 600),
+        "Decrogame",
+        sf::Style::Default
+    ));
 
     window->setFramerateLimit(60);
 
     auto smiling_cube_image = std::make_shared<sf::Texture>();
-    
-    if (!smiling_cube_image->loadFromFile("sprites/smiling_cube.png")) {
-        // error
-        return EXIT_FAILURE;
-    }
+    smiling_cube_image->loadFromFile("sprites/smiling_cube.png");
 
     auto smiling_cube_sprite = std::make_shared<sf::Sprite>();
     smiling_cube_sprite->setTexture(*smiling_cube_image);
