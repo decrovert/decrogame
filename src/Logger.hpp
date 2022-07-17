@@ -1,3 +1,6 @@
+#ifndef DECROGAME_LOGGER_HPP
+#define DECROGAME_LOGGER_HPP
+
 #include <fstream>
 #include <string>
 
@@ -12,3 +15,5 @@ namespace Decrogame {
         std::ofstream& GetLogFileStream();
     };
 }
+
+#endif
